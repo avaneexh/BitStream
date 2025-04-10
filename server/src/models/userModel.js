@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import { hashPassword } from "../utils/bcrypt.js";
 const userSchema = new mongoose.Schema(
   {
     name: {

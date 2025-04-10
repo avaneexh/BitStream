@@ -15,6 +15,7 @@ export const sendMail = async ({ to, subject, text }) => {
     subject,
     text,
   };
-
-  return transporter.sendMail(mailOptions);
+  const res = transporter.sendMail(mailOptions);
+  console.log("mail response",res);
+  return res;
 };

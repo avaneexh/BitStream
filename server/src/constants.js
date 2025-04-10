@@ -1,1 +1,1 @@
-export const DB_NAME = "BitStream"
+export const DB_NAME = "MajorProject"
