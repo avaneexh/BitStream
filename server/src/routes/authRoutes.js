@@ -6,6 +6,7 @@ const router = express.Router();
 router.post("/get-otp", AuthAPI.getOtp);
 router.post("/verify-email", AuthAPI.verifyEmail);
 router.post("/register", AuthAPI.registerUser);
+router.post("/login", AuthAPI.loginUser);
 
 export  {router};
 
