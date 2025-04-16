@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from '../components/forms/Login';
-import EmailVerify from '../components/forms/EmailVerify';
-import OtpVerify from '../components/forms/OtpVerify';
-import Register from '../components/forms/Register';
+import Login from '../components/auth/login'; 
+import EmailVerify from '../components/auth/verifyEmail'; 
+import OtpVerify from '../components/auth/verifyOtp'; 
+import Register from '../components/auth/register'; 
 
 const AppRoutes = () => (
   <Router>
