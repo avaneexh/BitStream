@@ -1,15 +1,28 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSendOtpMutation } from '../../services/authAPI'; 
+
 
 export default function EmailVerify() {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
+  const [sendOtp, { isLoading, error }] = useSendOtpMutation();
 
-  const handleGetOtp = () => {
+  const handleGetOtp = async () => {
     if (!email) return;
-    // 👇 Call your RTK API to send OTP here
-    navigate('/verify-otp', { state: { email } });
+  
+    try {
+      await sendOtp({ email, purpose: "signup" }).unwrap();
+      console.log("OTP sent!");
+  
+      navigate('/verify-otp', { state: { email, purpose: "signup" } });
+    } catch (err) {
+      console.error("Failed to send OTP:", err);
+      // Optionally show error to user
+    }
   };
+  
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#0f0f0f] px-4">

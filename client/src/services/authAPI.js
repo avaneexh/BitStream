@@ -2,18 +2,18 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://yourapi.com/api/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/auth/' }),
   endpoints: (builder) => ({
     sendOtp: builder.mutation({
-      query: (email) => ({
-        url: 'send-otp',
+      query: ({ email, purpose }) => ({
+        url: 'get-otp',
         method: 'POST',
-        body: { email },
+        body: { email, purpose },
       }),
     }),
     verifyOtp: builder.mutation({
       query: ({ email, otp }) => ({
-        url: 'verify-otp',
+        url: 'verify-email',
         method: 'POST',
         body: { email, otp },
       }),
